@@ -1,10 +1,12 @@
 import "./product.css";
 import QuantityPicker from "./quantityPicker";
 import { useEffect } from "react";
-import { useState } from 'react' ;
+import { useState, useContext } from 'react' ;
+import globalContext from "../state/globalContext";
 
 function Product(props) {
    const [quantity, setQuantity] = useState(1);
+   const addToCart = useContext(globalContext).addToCart;
 
     useEffect(function () {
     console.log("hey i'm a product");
@@ -22,7 +24,20 @@ function getTotal() {
 
 function handleAddClick(){
     console.log("Adding to cart")
+
+    letprodForCart = {...props.data};
+    prodForCart.quantity = quantity;
+    //prodfprcart["quantity"]=quantity;
+    console.log(prodForCart);
+
+    addToCart(prodForCart);
 }
+
+/**
+ * create a new object called prodForCart
+ * should be a copy of props.data
+ * and you should add quantity
+ */
 
 return(
 <div className="product">

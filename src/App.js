@@ -9,12 +9,14 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Cart from "./pages/cart";
 import Admin from "./pages/admin";
+import GlobalProvider from './state/globalProvider';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
+      <GlobalProvider></GlobalProvider>
 
     <BrowserRouter>
      <Navbar></Navbar>
@@ -29,6 +31,7 @@ function App() {
      </Routes> 
      <Footer></Footer>
      </BrowserRouter>
+     <GlobalProvider></GlobalProvider>
     </div>
   );
 }

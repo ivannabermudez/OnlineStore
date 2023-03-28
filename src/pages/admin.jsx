@@ -1,13 +1,14 @@
 import "./admin.css";
-
+import {useState} from "react";
 function Admin() {
     const[product, setProduct] = useState({});
+    const [coupon, setCoupon] = useState({});
 
 
     function handleTextChange(e){
        const value = e.target.value;
        const name = e.target.name;
-       product(name) = value;
+       product[name] = value;
        // 1  do not modify state vars 
        // - cretae a copy 
        // - modify the copy 
@@ -17,6 +18,11 @@ function Admin() {
        setProduct(copy); 
    }
 
+   function handleCouponTextChange(e)
+{
+    const value = e.target.value;
+    const name = e.target.name
+}
    function saveProduct(){
     console.log(product);
    }
@@ -63,6 +69,13 @@ function Admin() {
 </div>
 )
 }
+
+
+
+/**
+ * create the form 
+ * create the state variable
+ */
 
 export default Admin;
 

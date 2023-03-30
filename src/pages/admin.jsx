@@ -21,10 +21,18 @@ function Admin() {
    function handleCouponTextChange(e)
 {
     const value = e.target.value;
-    const name = e.target.name
+    const name = e.target.name;
+
+    let copy = {...coupon };
+    copy [name] = value;
+    setCoupon(copy);
 }
    function saveProduct(){
     console.log(product);
+   }
+
+   function saveCoupon() {
+    console.log(coupon);
    }
 
     return (
@@ -64,10 +72,29 @@ function Admin() {
 </section>
 
 <section id="coupons">
-    <h5> Coupon codes</h5> </section>
+    <h5> Coupon codes</h5> 
+    
+    <form>
+        <div className="mb-3">
+        <label className="form-label">Code</label> 
+        <input name="code" onChange={handleCouponTextChange} type="text" className="form-control"/> 
+        </div>
+
+        <div className="mb-3">
+        <label className="form-label">Discount</label> 
+        <input name="discount" onChange={handleCouponTextChange} type="text" className="form-control"/> 
+        </div>
+
+        <div className="mb-3">
+        <button type="button" onClick={saveCoupon} className = "btn btn primary">
+            Save Coupon
+        </button>
+        </div>
+    </form>
+    </section>
 </main>
 </div>
-)
+);
 }
 
 
@@ -75,6 +102,9 @@ function Admin() {
 /**
  * create the form 
  * create the state variable
+ * Create a handleCouponTextChange
+ All inputs in your form should use handleCouponTextChange 
+
  */
 
 export default Admin;

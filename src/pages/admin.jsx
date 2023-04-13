@@ -29,6 +29,12 @@ function Admin() {
 }
    function saveProduct(){
     console.log(product);
+//parse the price to a number before starting 
+    let copy = {...product};
+    copy.price = parseFloat(copy.price);
+
+    let service = new DataService();
+    service.saveProduct(copy);
    }
 
    function saveCoupon() {

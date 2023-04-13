@@ -16,7 +16,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <GlobalProvider></GlobalProvider>
+      <GlobalProvider>
 
     <BrowserRouter>
      <Navbar></Navbar>
@@ -31,7 +31,7 @@ function App() {
      </Routes> 
      <Footer></Footer>
      </BrowserRouter>
-     <GlobalProvider></GlobalProvider>
+     </GlobalProvider>
     </div>
   );
 }

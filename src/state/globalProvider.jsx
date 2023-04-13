@@ -14,13 +14,22 @@ function GlobalProvider(props) {
         setCart(copy);
 
         console.log(copy);
-        
+
     }
 
 
     function removeFromCart(){
         console.log("global remove");
     }
+
+    function getNumberOfProducts() {
+        let total = 0;
+        for(let i=0; i< cart.length; i++){
+            let prod = cart[i];
+            total = total + prod.quantity;
+            //total += prod.quantity;
+        }
+        return total;}
 
     return (
     <GlobalContext.Provider 
@@ -29,6 +38,7 @@ function GlobalProvider(props) {
         user: user, 
         addToCart: addToCart,
         removeFromCart: removeFromCart,
+        getNumberOfProducts: getNumberOfProducts,
     
     }}
 

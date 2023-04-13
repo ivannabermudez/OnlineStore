@@ -25,7 +25,7 @@ function getTotal() {
 function handleAddClick(){
     console.log("Adding to cart")
 
-    letprodForCart = {...props.data};
+    let prodForCart = {...props.data};
     prodForCart.quantity = quantity;
     //prodfprcart["quantity"]=quantity;
     console.log(prodForCart);
@@ -47,7 +47,7 @@ return(
 
         <div className="prices">
             <label>Price ${props.data.price.toFixed(2)}</label>
-            <label>Total $(getTotal())</label>
+            <label>Total ${getTotal()}</label>
             <label>Cat{props.data.category}</label>
         </div>
 

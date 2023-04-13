@@ -1,8 +1,12 @@
 import "./navbar.css";
 
-import {Link, link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import { useContext } from 'react'; 
+import globalContext from '../state/globalContext'; 
 
 function Navbar() {
+       const numOfProds = useContext(globalContext).getNumberOfProducts;
+
     return(
         //paste navbar bootstrap
         //replace class= with classname 
@@ -38,9 +42,11 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form className="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <Link class="btn btn-outline-success" to="/cart"> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <Link className="btn btn-outline-success" to="/cart"> 
+              <span className="badge text-bg-light">{numOfProds}</span>
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Cart
              </Link>
             </form>

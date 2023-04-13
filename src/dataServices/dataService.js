@@ -1,3 +1,5 @@
+
+import axios from 'axios';
 var catalog =[
     {
         "title" : "Almond Milk",
@@ -45,6 +47,29 @@ var catalog =[
         "price": 1.99,
         "image":"wildflower.jpeg",
         "_id":"75839475860" //must be unique
+    },
+    {
+        "title": "Organic Molases Syrup",
+        "category": "sweeteners",
+        "price": 4.99,
+        "image": "molases.jpeg",
+        "_id": "75839475760"
+    
+    },
+    {
+    "title": "Organic Coconut Milk",
+        "category": "milks",
+        "price": 4.99,
+        "image": "coconutmilk.webp",
+        "_id": "75839475760"
+    
+    },
+    {
+    "title": "Organic Soy Milk",
+        "category": "milks",
+        "price": 3.99,
+        "image": "soymilk.webp",
+        "_id": "75839475760"
     }
 
 
@@ -52,8 +77,18 @@ var catalog =[
 
 class DataService{
 
-    getProducts() {
-        return catalog;
+   async getProducts() {
+
+
+        // return catalog;
+
+        let response = await axios.get("http://127.0.0.1:5000/api/catalog");
+        return response.data;
+    }
+
+    async saveProducts (product) {
+        let response = await axios.post("http://127.0.0.1:5000/api/catalog", product);
+        return response.data
     }
 }
 

@@ -16,13 +16,13 @@ useEffect(function () {
     loadCatalog();
 },[]);
 
-function loadCatalog() {//get products from service 
+async function loadCatalog() {//get products from service 
 let service = new DataService();
-let prods = service.getProducts();
+let prods = await service.getProducts();
 console.log(prods);
 
 setProducts(prods);
-let cats=["Sweeteners","Teas","Milk"];
+let cats=["sweeteners","Teas","milks","barista"];
 setCategory(cats);
 
 //when the product component is loaded console log "hello im a product"
@@ -50,11 +50,11 @@ function clearFilter(){
 }
     return (
         <div className="catalog">
-            <h1> Hello check our stuff</h1>
+            <h1> Shop Our Variety of Organic Ingredients</h1>
         <h5>we have {products.length} new products</h5>
         <br></br>
         <button onClick={clearFilter} className="btn btn-dark btn-filter">
-            A11
+            All
         </button>
 
         {category.map((c)=> (
